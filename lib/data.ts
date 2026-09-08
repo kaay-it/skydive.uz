@@ -1,64 +1,4 @@
-export const federation = {
-  name: "Федерация парашютного спорта Узбекистана",
-  shortName: "Skydive.uz",
-  founded: 1968,
-  tagline: "Развиваем парашютный спорт и небо делаем доступным",
-  description:
-    "Федерация парашютного спорта Узбекистана объединяет спортивные клубы, парашютистов-разрядников и энтузиастов свободного полёта по всей стране. Мы отвечаем за развитие дисциплины, подготовку спортсменов, судейство соревнований и организацию прыжков для новичков.",
-};
-
-export const stats = [
-  { value: "50+", label: "лет истории федерации" },
-  { value: "600+", label: "действующих спортсменов" },
-  { value: "12", label: "аэроклубов-партнёров" },
-  { value: "20+", label: "соревнований в год" },
-];
-
-export const disciplines = [
-  {
-    title: "Классическое парашютное многоборье",
-    description:
-      "Точность приземления и акробатика в свободном падении — базовая олимпийская дисциплина парашютного спорта.",
-  },
-  {
-    title: "Групповая акробатика (FS)",
-    description:
-      "Построение фигур в свободном падении командой из 4–8 спортсменов на скорости падения около 200 км/ч.",
-  },
-  {
-    title: "Купольная акробатика (CF)",
-    description:
-      "Построение фигур под раскрытыми куполами — дисциплина, требующая высочайшей точности пилотирования.",
-  },
-  {
-    title: "Фристайл и фрифлай",
-    description:
-      "Свободные и артистичные дисциплины свободного падения с элементами хореографии и вертикальными позициями тела.",
-  },
-];
-
-export const boardMembers = [
-  {
-    name: "Алексей Борщук",
-    role: "Президент федерации",
-    bio: "Мастер спорта международного класса, более 3000 прыжков. Руководит федерацией с 2019 года.",
-  },
-  {
-    name: "Дилноза Каримова",
-    role: "Вице-президент по спорту",
-    bio: "Отвечает за подготовку сборной команды и организацию всероссийских и международных стартов.",
-  },
-  {
-    name: "Тимур Раджабов",
-    role: "Главный судья федерации",
-    bio: "Судья международной категории FAI, курирует судейство соревнований всех уровней.",
-  },
-  {
-    name: "Сардор Ахмедов",
-    role: "Руководитель по безопасности",
-    bio: "Инструктор-парашютист, отвечает за стандарты безопасности и аттестацию клубов.",
-  },
-];
+import type { Locale } from "@/i18n/routing";
 
 export type NewsItem = {
   slug: string;
@@ -69,58 +9,450 @@ export type NewsItem = {
   tag: string;
 };
 
-export const news: NewsItem[] = [
-  {
-    slug: "chempionat-uzbekistana-2026",
-    title: "Открыта регистрация на Чемпионат Узбекистана по парашютному спорту 2026",
-    date: "2026-08-20",
-    tag: "Соревнования",
-    excerpt:
-      "Федерация объявляет старт регистрации спортсменов на главный турнир сезона в дисциплинах точность приземления и групповая акробатика.",
-    content: [
-      "Федерация парашютного спорта Узбекистана открывает регистрацию на Чемпионат страны 2026 года. Соревнования пройдут в дисциплинах «точность приземления», «групповая акробатика» и «купольная акробатика».",
-      "К участию допускаются спортсмены с действующей квалификацией не ниже второго разряда и медицинским допуском. Заявки принимаются через региональные аэроклубы до конца месяца.",
-      "Подробное положение о соревнованиях и программа стартов будут опубликованы дополнительно.",
-    ],
-  },
-  {
-    slug: "sbornaya-na-mezhdunarodnyh-sorevnovaniyah",
-    title: "Сборная Узбекистана выступила на международных соревнованиях",
-    date: "2026-07-05",
-    tag: "Сборная",
-    excerpt:
-      "Национальная команда приняла участие в международном турнире по групповой акробатике, показав лучший результат за последние годы.",
-    content: [
-      "Сборная команда Узбекистана по парашютному спорту приняла участие в международном турнире, соревнуясь с командами из Казахстана, Кыргызстана и России.",
-      "Спортсмены выступили в дисциплине групповой акробатики и точности приземления, показав уверенный прогресс по сравнению с прошлым сезоном.",
-      "Федерация благодарит спортсменов и тренерский штаб за подготовку и представление страны на международном уровне.",
-    ],
-  },
-  {
-    slug: "novyi-nabor-dlya-nachinayushchih",
-    title: "Стартует новый набор для начинающих парашютистов",
-    date: "2026-06-12",
-    tag: "Обучение",
-    excerpt:
-      "Партнёрские аэроклубы федерации открывают программу первоначальной подготовки для всех желающих совершить первый прыжок.",
-    content: [
-      "Федерация совместно с партнёрскими аэроклубами объявляет набор в группы начальной подготовки парашютистов.",
-      "Программа включает теоретическую подготовку, наземную отработку действий и прыжки в тандеме или по программе AFF с инструктором.",
-      "Записаться можно через раздел «Контакты» — федерация направит заявку в ближайший аэроклуб.",
-    ],
-  },
-];
+type Federation = {
+  name: string;
+  shortName: string;
+  founded: number;
+  tagline: string;
+  description: string;
+};
 
-export const contacts = {
-  address: "г. Ташкент, ул. Авиационная, 12",
-  phone: "+998 93 594 68 54",
-  phoneSecondary: "+998 99 099 13 19",
-  email: "info@skydive.uz",
-  social: {
-    instagram: "https://instagram.com/skydive.uz",
-    telegram: "https://t.me/+MGFRNcSw5RYyZDhi",
+type Stat = { value: string; label: string };
+export type Discipline = {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  details: string[];
+};
+type BoardMember = { name: string; role: string; bio: string };
+type Contacts = {
+  address: string;
+  phone: string;
+  phoneSecondary: string;
+  email: string;
+  social: { instagram: string; telegram: string };
+  workingHours: string;
+};
+
+const federationByLocale: Record<Locale, Federation> = {
+  ru: {
+    name: "Федерация парашютного спорта Узбекистана",
+    shortName: "Skydive.uz",
+    founded: 1968,
+    tagline: "Развиваем парашютный спорт и небо делаем доступным",
+    description:
+      "Федерация парашютного спорта Узбекистана объединяет спортивные клубы, парашютистов-разрядников и энтузиастов свободного полёта по всей стране. Мы отвечаем за развитие дисциплины, подготовку спортсменов, судейство соревнований и организацию прыжков для новичков.",
   },
-  workingHours: "Пн–Пт, 9:00–18:00",
+  en: {
+    name: "Skydiving Federation of Uzbekistan",
+    shortName: "Skydive.uz",
+    founded: 1968,
+    tagline: "Growing skydiving and making the sky accessible",
+    description:
+      "The Skydiving Federation of Uzbekistan unites sports clubs, licensed skydivers, and free-flight enthusiasts across the country. We are responsible for developing the sport, training athletes, judging competitions, and organizing jumps for beginners.",
+  },
+  uz: {
+    name: "O‘zbekiston Parashyut sporti federatsiyasi",
+    shortName: "Skydive.uz",
+    founded: 1968,
+    tagline: "Parashyut sportini rivojlantiramiz va osmonni hammabop qilamiz",
+    description:
+      "O‘zbekiston Parashyut sporti federatsiyasi butun mamlakat bo‘ylab sport klublarini, malakali parashyutchilarni va erkin parvoz ishqibozlarini birlashtiradi. Biz sport turini rivojlantirish, sportchilarni tayyorlash, musobaqalarni hakamlik qilish va yangi boshlovchilar uchun sakrashlarni tashkil etish uchun javobgarmiz.",
+  },
+};
+
+const statsByLocale: Record<Locale, Stat[]> = {
+  ru: [
+    { value: "50+", label: "лет истории федерации" },
+    { value: "600+", label: "действующих спортсменов" },
+    { value: "12", label: "аэроклубов-партнёров" },
+    { value: "20+", label: "соревнований в год" },
+  ],
+  en: [
+    { value: "50+", label: "years of federation history" },
+    { value: "600+", label: "active athletes" },
+    { value: "12", label: "partner aeroclubs" },
+    { value: "20+", label: "competitions per year" },
+  ],
+  uz: [
+    { value: "50+", label: "federatsiya tarixi (yil)" },
+    { value: "600+", label: "faol sportchilar" },
+    { value: "12", label: "hamkor aeroklublar" },
+    { value: "20+", label: "yillik musobaqalar" },
+  ],
+};
+
+const disciplinesByLocale: Record<Locale, Discipline[]> = {
+  ru: [
+    {
+      slug: "classic",
+      title: "Классическое парашютное многоборье",
+      description: "Точность приземления и акробатика в свободном падении.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Классическое парашютное многоборье — одна из старейших дисциплин парашютного спорта, объединяющая два норматива: точность приземления и акробатику (стиль) в свободном падении.",
+        "В точности приземления спортсмен должен приземлиться как можно ближе к электронной мишени диаметром 2 см, управляя куполом на завершающем этапе снижения. В акробатике оценивается скорость и чистота выполнения серии фигур — заданных разворотов и сальто — во время свободного падения.",
+        "Дисциплина входит в программу чемпионатов мира и Европы под эгидой Международной авиационной федерации (FAI) и остаётся базовой ступенью для спортсменов, начинающих путь в классическом парашютизме.",
+      ],
+    },
+    {
+      slug: "fs",
+      title: "Групповая акробатика (FS)",
+      description: "Командные фигуры из 4–8 спортсменов на скорости около 200 км/ч.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Групповая акробатика (Formation Skydiving, FS) — командная дисциплина, в которой спортсмены строят серию фигур в свободном падении, держась за руки и ноги партнёров на скорости падения около 200 км/ч.",
+        "Основные форматы — 4-way и 8-way: команда из 4 или 8 спортсменов должна за отведённое время (обычно 35–50 секунд свободного падения) построить максимальное количество фигур из заданной серии. Результат фиксирует видеооператор, прыгающий вместе с командой.",
+        "FS — одна из самых зрелищных и требовательных к слаженности команды дисциплин: успех зависит от синхронности движений, точности захватов и слаженной работы всей группы.",
+      ],
+    },
+    {
+      slug: "cf",
+      title: "Купольная акробатика (CF)",
+      description: "Фигуры под раскрытыми куполами и точное пилотирование.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Купольная акробатика (Canopy Formation, CF) — дисциплина, в которой спортсмены строят фигуры уже под раскрытыми куполами, а не в свободном падении.",
+        "Команда из 2–4 спортсменов сближается в воздухе и сцепляется куполами или берётся за стропы, формируя фигуры — «стопки», «розетки» и другие построения. Дисциплина требует ювелирной точности пилотирования купола и хладнокровия: ошибка в сближении может привести к схлопыванию купола.",
+        "CF — одна из самых технически сложных дисциплин парашютного спорта, доступная только спортсменам с большим опытом прыжков и отдельной специализированной подготовкой.",
+      ],
+    },
+    {
+      slug: "freefly",
+      title: "Фристайл и фрифлай",
+      description: "Артистичные дисциплины свободного падения с хореографией.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Фристайл и фрифлай — артистичные дисциплины свободного падения, в которых спортсмены выполняют вертикальные позиции тела (head-down, sit-fly) и хореографические элементы вместо классической горизонтальной позиции «на животе».",
+        "Во фристайле спортсмен выступает соло, демонстрируя произвольную программу с элементами, похожими на гимнастику и танец в воздухе; в паре с ним прыгает видеооператор, снимающий выступление для судейской оценки. Фрифлай — командная версия дисциплины, где несколько спортсменов строят фигуры в вертикальном положении.",
+        "Дисциплина требует безупречного владения телом в свободном падении и особенно ценится за зрелищность — именно фристайл и фрифлай чаще всего можно увидеть в промо-роликах о парашютном спорте.",
+      ],
+    },
+  ],
+  en: [
+    {
+      slug: "classic",
+      title: "Classic Skydiving Combined",
+      description: "Landing accuracy and freefall aerobatics.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Classic Skydiving Combined is one of the oldest skydiving disciplines, combining two events: landing accuracy and freefall style (aerobatics).",
+        "In accuracy, the athlete aims to land as close as possible to an electronic target just 2 cm in diameter, steering the canopy during the final approach. In style, judges score the speed and precision of a set sequence of turns and loops performed in freefall.",
+        "The discipline is part of World and European Championship programs sanctioned by the Fédération Aéronautique Internationale (FAI) and remains the foundational step for athletes starting out in classical skydiving.",
+      ],
+    },
+    {
+      slug: "fs",
+      title: "Formation Skydiving (FS)",
+      description: "Team formations of 4–8 athletes at around 200 km/h.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Formation Skydiving (FS) is a team discipline in which athletes build a sequence of formations in freefall, gripping teammates' arms and legs at a fall speed of around 200 km/h.",
+        "The main formats are 4-way and 8-way: a team of 4 or 8 athletes must build as many formations as possible from a set sequence within a limited freefall time (typically 35–50 seconds). A videographer jumps with the team to record the round for judging.",
+        "FS is one of the most spectacular and demanding team disciplines — success depends on synchronized movement, precise grips, and seamless teamwork.",
+      ],
+    },
+    {
+      slug: "cf",
+      title: "Canopy Formation (CF)",
+      description: "Formations under open canopies and precision piloting.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Canopy Formation (CF) is a discipline in which athletes build formations under open canopies rather than in freefall.",
+        "A team of 2–4 athletes closes in on each other in the air and links up by grabbing canopies or lines, forming shapes such as \"stacks\" and \"rosettes.\" The discipline demands extremely precise canopy piloting and a cool head — a mistiming during the approach can collapse a canopy.",
+        "CF is one of the most technically demanding skydiving disciplines, open only to athletes with extensive jump experience and dedicated specialized training.",
+      ],
+    },
+    {
+      slug: "freefly",
+      title: "Freestyle & Freeflying",
+      description: "Artistic freefall disciplines with choreography.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Freestyle and Freeflying are artistic freefall disciplines in which athletes perform vertical body positions (head-down, sit-fly) and choreographic elements instead of the classic horizontal belly-to-earth position.",
+        "In freestyle, an athlete performs solo, showcasing a freely chosen routine with elements resembling aerial gymnastics and dance; a videographer jumps alongside to film the routine for judging. Freeflying is the team version of the discipline, where several athletes build formations in vertical positions.",
+        "The discipline demands flawless body control in freefall and is especially valued for its visual appeal — freestyle and freeflying are what you most often see in skydiving promo videos.",
+      ],
+    },
+  ],
+  uz: [
+    {
+      slug: "classic",
+      title: "Klassik parashyut ko‘pkurashi",
+      description: "Aniq qo‘nish va erkin uchishda akrobatika.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Klassik parashyut ko‘pkurashi — parashyut sportining eng qadimiy intizomlaridan biri bo‘lib, ikki normativni birlashtiradi: aniq qo‘nish va erkin uchishda akrobatika (stil).",
+        "Aniq qo‘nishda sportchi gumbazni boshqarib, diametri atigi 2 sm bo‘lgan elektron nishonga imkon qadar yaqin qo‘nishga harakat qiladi. Akrobatikada esa erkin uchish paytida bajarilgan belgilangan burilishlar va saltolar ketma-ketligining tezligi va aniqligi baholanadi.",
+        "Intizom FAI (Xalqaro aviatsiya federatsiyasi) homiyligidagi Jahon va Yevropa chempionatlari dasturiga kiradi va klassik parashyut sportiga endi qadam qo‘yayotgan sportchilar uchun asosiy bosqich bo‘lib qolmoqda.",
+      ],
+    },
+    {
+      slug: "fs",
+      title: "Guruh akrobatikasi (FS)",
+      description: "4–8 kishilik jamoa bilan soatiga taxminan 200 km tezlikda shakllar.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Guruh akrobatikasi (Formation Skydiving, FS) — sportchilar erkin uchishda, taxminan soatiga 200 km tezlikda, hamjamoachilarining qo‘l va oyoqlaridan ushlab, ketma-ket shakllar hosil qiladigan jamoaviy intizom.",
+        "Asosiy formatlar — 4-way va 8-way: 4 yoki 8 kishilik jamoa belgilangan vaqt ichida (odatda 35–50 soniyalik erkin uchishda) berilgan ketma-ketlikdan iloji boricha ko‘proq shakl hosil qilishi kerak. Natijani jamoa bilan birga sakraydigan videooperator qayd etadi.",
+        "FS — jamoa hamjihatligini eng ko‘p talab qiladigan va tomoshabop intizomlardan biri: muvaffaqiyat harakatlar sinxronligiga, aniq ushlashlarga va jamoaviy ishga bog‘liq.",
+      ],
+    },
+    {
+      slug: "cf",
+      title: "Gumbaz akrobatikasi (CF)",
+      description: "Ochiq gumbazlar ostida shakllar va aniq boshqaruv.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Gumbaz akrobatikasi (Canopy Formation, CF) — sportchilar erkin uchishda emas, balki ochilgan gumbazlar ostida shakllar hosil qiladigan intizom.",
+        "2–4 kishilik jamoa havoda bir-biriga yaqinlashib, gumbazlar yoki arqonlardan ushlab, «shtabel» va «rozetka» kabi shakllarni hosil qiladi. Intizom gumbazni boshqarishda yuqori aniqlik va sovuqqonlikni talab qiladi — yaqinlashishdagi xato gumbazning yiqilib tushishiga olib kelishi mumkin.",
+        "CF — parashyut sportining texnik jihatdan eng murakkab intizomlaridan biri bo‘lib, faqat katta sakrash tajribasiga va maxsus tayyorgarlikka ega sportchilar uchun ochiq.",
+      ],
+    },
+    {
+      slug: "freefly",
+      title: "Freestayl va Freefly",
+      description: "Xoreografiya bilan badiiy erkin uchish intizomlari.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Freestayl va freefly — sportchilar klassik gorizontal «qorin bilan yerga qarab» holati o‘rniga vertikal tana holatlari (head-down, sit-fly) va xoreografik elementlarni bajaradigan badiiy erkin uchish intizomlari.",
+        "Freestaylda sportchi yakka holda, havoda gimnastika va raqsga o‘xshash elementlar bilan erkin dastur namoyish etadi; unga hamrohlik qiluvchi videooperator chiqishni hakamlar baholashi uchun suratga oladi. Freefly esa intizomning jamoaviy versiyasi bo‘lib, unda bir nechta sportchi vertikal holatda shakllar hosil qiladi.",
+        "Intizom erkin uchishda tanani mukammal boshqarishni talab qiladi va o‘zining tomoshabopligi bilan alohida qadrlanadi — aynan freestayl va freefly parashyut sporti haqidagi promo-videolarda eng ko‘p uchraydigan manzaralardir.",
+      ],
+    },
+  ],
+};
+
+const boardMembersByLocale: Record<Locale, BoardMember[]> = {
+  ru: [
+    {
+      name: "Алексей Борщук",
+      role: "Президент федерации",
+      bio: "Мастер спорта международного класса, более 3000 прыжков. Руководит федерацией с 2019 года.",
+    },
+    {
+      name: "Дилноза Каримова",
+      role: "Вице-президент по спорту",
+      bio: "Отвечает за подготовку сборной команды и организацию республиканских и международных стартов.",
+    },
+    {
+      name: "Тимур Раджабов",
+      role: "Главный судья федерации",
+      bio: "Судья международной категории FAI, курирует судейство соревнований всех уровней.",
+    },
+    {
+      name: "Сардор Ахмедов",
+      role: "Руководитель по безопасности",
+      bio: "Инструктор-парашютист, отвечает за стандарты безопасности и аттестацию клубов.",
+    },
+  ],
+  en: [
+    {
+      name: "Aleksey Borshchuk",
+      role: "Federation President",
+      bio: "International Class Master of Sport, over 3,000 jumps. Has led the federation since 2019.",
+    },
+    {
+      name: "Dilnoza Karimova",
+      role: "Vice President for Sport",
+      bio: "Responsible for national team preparation and organizing national and international competitions.",
+    },
+    {
+      name: "Timur Rajabov",
+      role: "Chief Judge of the Federation",
+      bio: "FAI international category judge, oversees judging at competitions of all levels.",
+    },
+    {
+      name: "Sardor Akhmedov",
+      role: "Head of Safety",
+      bio: "Skydiving instructor, responsible for safety standards and club certification.",
+    },
+  ],
+  uz: [
+    {
+      name: "Aleksey Borshuk",
+      role: "Federatsiya prezidenti",
+      bio: "Xalqaro toifadagi sport ustasi, 3000 dan ortiq sakrash. Federatsiyani 2019-yildan boshqarib kelmoqda.",
+    },
+    {
+      name: "Dilnoza Karimova",
+      role: "Sport bo‘yicha vitse-prezident",
+      bio: "Terma jamoani tayyorlash hamda respublika va xalqaro musobaqalarni tashkil etish uchun javobgar.",
+    },
+    {
+      name: "Temur Rajabov",
+      role: "Federatsiyaning bosh hakami",
+      bio: "FAI xalqaro toifali hakam, barcha darajadagi musobaqalarda hakamlikni nazorat qiladi.",
+    },
+    {
+      name: "Sardor Ahmedov",
+      role: "Xavfsizlik bo‘yicha rahbar",
+      bio: "Parashyut instruktori, xavfsizlik standartlari va klublarni attestatsiyadan o‘tkazish uchun javobgar.",
+    },
+  ],
+};
+
+const newsByLocale: Record<Locale, NewsItem[]> = {
+  ru: [
+    {
+      slug: "chempionat-uzbekistana-2026",
+      title: "Открыта регистрация на Чемпионат Узбекистана по парашютному спорту 2026",
+      date: "2026-08-20",
+      tag: "Соревнования",
+      excerpt:
+        "Федерация объявляет старт регистрации спортсменов на главный турнир сезона в дисциплинах точность приземления и групповая акробатика.",
+      content: [
+        "Федерация парашютного спорта Узбекистана открывает регистрацию на Чемпионат страны 2026 года. Соревнования пройдут в дисциплинах «точность приземления», «групповая акробатика» и «купольная акробатика».",
+        "К участию допускаются спортсмены с действующей квалификацией не ниже второго разряда и медицинским допуском. Заявки принимаются через региональные аэроклубы до конца месяца.",
+        "Подробное положение о соревнованиях и программа стартов будут опубликованы дополнительно.",
+      ],
+    },
+    {
+      slug: "sbornaya-na-mezhdunarodnyh-sorevnovaniyah",
+      title: "Сборная Узбекистана выступила на международных соревнованиях",
+      date: "2026-07-05",
+      tag: "Сборная",
+      excerpt:
+        "Национальная команда приняла участие в международном турнире по групповой акробатике, показав лучший результат за последние годы.",
+      content: [
+        "Сборная команда Узбекистана по парашютному спорту приняла участие в международном турнире, соревнуясь с командами из Казахстана, Кыргызстана и России.",
+        "Спортсмены выступили в дисциплине групповой акробатики и точности приземления, показав уверенный прогресс по сравнению с прошлым сезоном.",
+        "Федерация благодарит спортсменов и тренерский штаб за подготовку и представление страны на международном уровне.",
+      ],
+    },
+    {
+      slug: "novyi-nabor-dlya-nachinayushchih",
+      title: "Стартует новый набор для начинающих парашютистов",
+      date: "2026-06-12",
+      tag: "Обучение",
+      excerpt:
+        "Партнёрские аэроклубы федерации открывают программу первоначальной подготовки для всех желающих совершить первый прыжок.",
+      content: [
+        "Федерация совместно с партнёрскими аэроклубами объявляет набор в группы начальной подготовки парашютистов.",
+        "Программа включает теоретическую подготовку, наземную отработку действий и прыжки в тандеме или по программе AFF с инструктором.",
+        "Записаться можно через раздел «Контакты» — федерация направит заявку в ближайший аэроклуб.",
+      ],
+    },
+  ],
+  en: [
+    {
+      slug: "chempionat-uzbekistana-2026",
+      title: "Registration Opens for the 2026 Uzbekistan Skydiving Championship",
+      date: "2026-08-20",
+      tag: "Competitions",
+      excerpt:
+        "The federation announces the start of athlete registration for the season's main tournament in landing accuracy and formation skydiving.",
+      content: [
+        "The Skydiving Federation of Uzbekistan is opening registration for the 2026 National Championship. Competitions will be held in landing accuracy, formation skydiving, and canopy formation.",
+        "Athletes with a current qualification of at least second class and medical clearance are eligible to participate. Applications are accepted through regional aeroclubs until the end of the month.",
+        "Detailed competition regulations and the event schedule will be published separately.",
+      ],
+    },
+    {
+      slug: "sbornaya-na-mezhdunarodnyh-sorevnovaniyah",
+      title: "Uzbekistan's National Team Competes at International Tournament",
+      date: "2026-07-05",
+      tag: "National Team",
+      excerpt:
+        "The national team took part in an international formation skydiving tournament, delivering its best result in recent years.",
+      content: [
+        "Uzbekistan's national skydiving team took part in an international tournament, competing against teams from Kazakhstan, Kyrgyzstan, and Russia.",
+        "Athletes competed in formation skydiving and landing accuracy, showing solid progress compared to last season.",
+        "The federation thanks the athletes and coaching staff for their preparation and for representing the country on the international stage.",
+      ],
+    },
+    {
+      slug: "novyi-nabor-dlya-nachinayushchih",
+      title: "New Enrollment Opens for Beginner Skydivers",
+      date: "2026-06-12",
+      tag: "Training",
+      excerpt:
+        "The federation's partner aeroclubs are opening an introductory training program for anyone who wants to make their first jump.",
+      content: [
+        "Together with partner aeroclubs, the federation is announcing enrollment in beginner skydiver training groups.",
+        "The program includes theoretical training, ground drills, and jumps in tandem or under the AFF program with an instructor.",
+        "Sign up via the Contacts section — the federation will forward your request to the nearest aeroclub.",
+      ],
+    },
+  ],
+  uz: [
+    {
+      slug: "chempionat-uzbekistana-2026",
+      title: "2026-yilgi O‘zbekiston parashyut sporti chempionatiga ro‘yxatdan o‘tish boshlandi",
+      date: "2026-08-20",
+      tag: "Musobaqalar",
+      excerpt:
+        "Federatsiya mavsumning asosiy turniriga — aniq qo‘nish va guruh akrobatikasi intizomlariga — sportchilarni ro‘yxatga olishni e’lon qiladi.",
+      content: [
+        "O‘zbekiston Parashyut sporti federatsiyasi 2026-yilgi Mamlakat chempionatiga ro‘yxatdan o‘tishni ochmoqda. Musobaqalar «aniq qo‘nish», «guruh akrobatikasi» va «gumbaz akrobatikasi» intizomlarida o‘tkaziladi.",
+        "Kamida ikkinchi toifa malakasiga va tibbiy ruxsatnomaga ega sportchilar ishtirok etishi mumkin. Arizalar oy oxirigacha mintaqaviy aeroklublar orqali qabul qilinadi.",
+        "Musobaqalar bo‘yicha batafsil nizom va start jadvali keyinroq e’lon qilinadi.",
+      ],
+    },
+    {
+      slug: "sbornaya-na-mezhdunarodnyh-sorevnovaniyah",
+      title: "O‘zbekiston terma jamoasi xalqaro musobaqada qatnashdi",
+      date: "2026-07-05",
+      tag: "Terma jamoa",
+      excerpt:
+        "Milliy terma jamoa guruh akrobatikasi bo‘yicha xalqaro turnirda qatnashib, so‘nggi yillardagi eng yaxshi natijani ko‘rsatdi.",
+      content: [
+        "O‘zbekiston parashyut sporti terma jamoasi Qozog‘iston, Qirg‘iziston va Rossiya jamoalari bilan bellashib, xalqaro turnirda qatnashdi.",
+        "Sportchilar guruh akrobatikasi va aniq qo‘nish intizomlarida chiqish qilib, o‘tgan mavsumga nisbatan sezilarli o‘sish ko‘rsatdi.",
+        "Federatsiya sportchilar va murabbiylar shtabiga tayyorgarlik va mamlakatni xalqaro darajada namoyon etgani uchun minnatdorchilik bildiradi.",
+      ],
+    },
+    {
+      slug: "novyi-nabor-dlya-nachinayushchih",
+      title: "Yangi boshlovchi parashyutchilar uchun qabul boshlandi",
+      date: "2026-06-12",
+      tag: "O‘qitish",
+      excerpt:
+        "Federatsiyaning hamkor aeroklublari birinchi sakrashni amalga oshirmoqchi bo‘lgan barcha istaklilar uchun boshlang‘ich tayyorgarlik dasturini ochmoqda.",
+      content: [
+        "Federatsiya hamkor aeroklublar bilan birgalikda boshlovchi parashyutchilar uchun tayyorgarlik guruhlariga qabulni e’lon qiladi.",
+        "Dastur nazariy tayyorgarlik, yerdagi mashg‘ulotlar hamda instruktor bilan tandem yoki AFF dasturi bo‘yicha sakrashlarni o‘z ichiga oladi.",
+        "Ro‘yxatdan o‘tish uchun «Kontaktlar» bo‘limiga murojaat qiling — federatsiya arizangizni eng yaqin aeroklubga yo‘naltiradi.",
+      ],
+    },
+  ],
+};
+
+const contactsByLocale: Record<Locale, Contacts> = {
+  ru: {
+    address: "г. Ташкент, ул. Авиационная, 12",
+    phone: "+998 93 594 68 54",
+    phoneSecondary: "+998 99 099 13 19",
+    email: "info@skydive.uz",
+    social: {
+      instagram: "https://instagram.com/skydive.uz",
+      telegram: "https://t.me/+MGFRNcSw5RYyZDhi",
+    },
+    workingHours: "Пн–Пт, 9:00–18:00",
+  },
+  en: {
+    address: "12 Aviatsionnaya St, Tashkent",
+    phone: "+998 93 594 68 54",
+    phoneSecondary: "+998 99 099 13 19",
+    email: "info@skydive.uz",
+    social: {
+      instagram: "https://instagram.com/skydive.uz",
+      telegram: "https://t.me/+MGFRNcSw5RYyZDhi",
+    },
+    workingHours: "Mon–Fri, 9:00 AM–6:00 PM",
+  },
+  uz: {
+    address: "Toshkent sh., Aviatsion ko‘chasi, 12",
+    phone: "+998 93 594 68 54",
+    phoneSecondary: "+998 99 099 13 19",
+    email: "info@skydive.uz",
+    social: {
+      instagram: "https://instagram.com/skydive.uz",
+      telegram: "https://t.me/+MGFRNcSw5RYyZDhi",
+    },
+    workingHours: "Dush–Juma, 9:00–18:00",
+  },
 };
 
 export const instagramPosts: string[] = [
@@ -129,10 +461,34 @@ export const instagramPosts: string[] = [
   "https://www.instagram.com/reel/Da4LQXOogIQ/",
 ];
 
-export const navLinks = [
-  { href: "/", label: "Главная" },
-  { href: "/about", label: "О федерации" },
-  { href: "/news", label: "Новости" },
-  { href: "/gallery", label: "Галерея" },
-  { href: "/contacts", label: "Контакты" },
-];
+export function getFederation(locale: Locale): Federation {
+  return federationByLocale[locale];
+}
+
+export function getStats(locale: Locale): Stat[] {
+  return statsByLocale[locale];
+}
+
+export function getDisciplines(locale: Locale): Discipline[] {
+  return disciplinesByLocale[locale];
+}
+
+export function getDiscipline(locale: Locale, slug: string): Discipline | undefined {
+  return disciplinesByLocale[locale].find((d) => d.slug === slug);
+}
+
+export function getBoardMembers(locale: Locale): BoardMember[] {
+  return boardMembersByLocale[locale];
+}
+
+export function getNews(locale: Locale): NewsItem[] {
+  return newsByLocale[locale];
+}
+
+export function getNewsItem(locale: Locale, slug: string): NewsItem | undefined {
+  return newsByLocale[locale].find((item) => item.slug === slug);
+}
+
+export function getContacts(locale: Locale): Contacts {
+  return contactsByLocale[locale];
+}

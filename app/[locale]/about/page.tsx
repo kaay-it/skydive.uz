@@ -1,30 +1,40 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
+import { DisciplineCard } from "@/components/discipline-card";
 import { PageHero } from "@/components/page-hero";
-import { boardMembers, disciplines, federation, stats } from "@/lib/data";
-
-export const metadata: Metadata = { title: "О федерации" };
+import type { Locale } from "@/i18n/routing";
+import { getBoardMembers, getDisciplines, getFederation, getStats } from "@/lib/data";
 
 const statColors = ["text-brand-600", "text-teal-600", "text-accent-600", "text-pink-600"];
 const statTints = ["bg-brand-50", "bg-teal-50", "bg-accent-50", "bg-pink-50"];
 
-export default function AboutPage() {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "about" });
+  return { title: t("heroTitle") };
+}
+
+export default async function AboutPage({ params }: { params: { locale: string } }) {
+  const locale = params.locale as Locale;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("about");
+  const federation = getFederation(locale);
+  const stats = getStats(locale);
+  const disciplines = getDisciplines(locale);
+  const boardMembers = getBoardMembers(locale);
+
   return (
     <>
-      <PageHero
-        title="О федерации"
-        description="История, миссия и структура федерации парашютного спорта Узбекистана."
-      />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} image="/hero-about.jpg" />
 
       <section className="py-16">
         <Container className="grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <h2 className="text-xl font-bold text-ink-950">Миссия</h2>
+            <h2 className="text-xl font-bold text-ink-950">{t("missionTitle")}</h2>
             <p className="mt-3 leading-relaxed text-ink-900/70">{federation.description}</p>
             <p className="mt-4 leading-relaxed text-ink-900/70">
-              Основанная в {federation.founded} году, федерация объединяет спортивные аэроклубы страны,
-              организует подготовку спортсменов и судей, проводит республиканские и региональные
-              соревнования, а также представляет Узбекистан на международной арене парашютного спорта.
+              {t("foundedText", { year: federation.founded })}
             </p>
           </div>
 
@@ -41,13 +51,10 @@ export default function AboutPage() {
 
       <section className="border-t border-ink-900/10 bg-ink-50/50 py-16">
         <Container>
-          <h2 className="text-xl font-bold text-ink-950">Дисциплины</h2>
+          <h2 className="text-xl font-bold text-ink-950">{t("disciplinesTitle")}</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {disciplines.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-ink-900/10 bg-white p-6">
-                <h3 className="text-lg font-semibold text-ink-950">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-900/70">{d.description}</p>
-              </div>
+              <DisciplineCard key={d.slug} discipline={d} />
             ))}
           </div>
         </Container>
@@ -55,7 +62,7 @@ export default function AboutPage() {
 
       <section className="border-t border-ink-900/10 py-16">
         <Container>
-          <h2 className="text-xl font-bold text-ink-950">Руководство федерации</h2>
+          <h2 className="text-xl font-bold text-ink-950">{t("leadershipTitle")}</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {boardMembers.map((member) => (
               <div key={member.name} className="rounded-2xl border border-ink-900/10 p-6">

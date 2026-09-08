@@ -1,9 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { getContacts, getFederation } from "@/lib/data";
 import { Container } from "./container";
-import { contacts, federation, navLinks } from "@/lib/data";
 
-export function Footer() {
+const navItems = [
+  { href: "/", key: "home" },
+  { href: "/about", key: "about" },
+  { href: "/news", key: "news" },
+  { href: "/gallery", key: "gallery" },
+  { href: "/contacts", key: "contacts" },
+] as const;
+
+export async function Footer() {
+  const locale = (await getLocale()) as Locale;
+  const t = await getTranslations("nav");
+  const tFooter = await getTranslations("footer");
+  const federation = getFederation(locale);
+  const contacts = getContacts(locale);
+
   return (
     <footer className="border-t border-white/10 bg-gradient-to-br from-brand-700 to-brand-600 text-white/70">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -18,12 +34,12 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Навигация</h3>
+          <h3 className="text-sm font-semibold text-white">{tFooter("navTitle")}</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="transition-colors hover:text-white">
-                  {link.label}
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="transition-colors hover:text-white">
+                  {t(item.key)}
                 </Link>
               </li>
             ))}
@@ -31,7 +47,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-white">Контакты</h3>
+          <h3 className="text-sm font-semibold text-white">{tFooter("contactsTitle")}</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>{contacts.address}</li>
             <li>
@@ -61,7 +77,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {federation.name}
           </p>
-          <p>Официальный сайт федерации</p>
+          <p>{tFooter("officialSite")}</p>
         </Container>
       </div>
     </footer>

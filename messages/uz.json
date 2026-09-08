@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Federatsiya haqida",
+    "news": "Yangiliklar",
+    "gallery": "Galereya",
+    "contacts": "Kontaktlar"
+  },
+  "header": {
+    "openMenu": "Menyuni ochish"
+  },
+  "common": {
+    "readMore": "Batafsil →",
+    "allNews": "Barcha yangiliklar →"
+  },
+  "home": {
+    "badge": "Rasmiy parashyut sporti federatsiyasi",
+    "ctaAbout": "Federatsiya haqida",
+    "ctaFirstJump": "Birinchi sakrashni amalga oshirish",
+    "disciplinesTitle": "Parashyut sporti intizomlari",
+    "disciplinesSubtitle": "Federatsiya mamlakatdagi barcha rasmiy parashyut sporti intizomlarining rivojlanishini nazorat qiladi.",
+    "presidentTitle": "Federatsiya prezidentining so‘zi",
+    "presidentQuote": "«{bio} Biz yangi sportchilar, klublar va hamkorlarni kutib olamiz — kelib, osmonni biz bilan birga zabt eting.» — {name}, {role}",
+    "presidentCta": "Federatsiya rahbariyati",
+    "newsTitle": "Yangiliklar",
+    "newsSubtitle": "Federatsiya hayotidan so‘nggi voqealar"
+  },
+  "about": {
+    "heroTitle": "Federatsiya haqida",
+    "heroDesc": "O‘zbekiston Parashyut sporti federatsiyasining tarixi, missiyasi va tuzilishi.",
+    "missionTitle": "Missiya",
+    "foundedText": "{year}-yilda tashkil etilgan federatsiya mamlakat sport aeroklublarini birlashtiradi, sportchilar va hakamlarni tayyorlaydi, respublika va mintaqaviy musobaqalar o‘tkazadi, shuningdek O‘zbekistonni xalqaro parashyut sporti maydonida namoyon etadi.",
+    "disciplinesTitle": "Intizomlar",
+    "leadershipTitle": "Federatsiya rahbariyati"
+  },
+  "newsPage": {
+    "heroTitle": "Yangiliklar",
+    "heroDesc": "Voqealar, musobaqa natijalari va federatsiya e’lonlari.",
+    "backToNews": "← Barcha yangiliklar"
+  },
+  "disciplinePage": {
+    "back": "← Intizomlar"
+  },
+  "gallery": {
+    "heroTitle": "Galereya",
+    "heroDesc": "Musobaqalar, yig‘inlar va sakrashlardan foto va video — bevosita Instagramimizdan.",
+    "bannerText": "Har bir yig‘in va musobaqadan foto va videolarning to‘liq lentasi Instagramimizda.",
+    "subscribeButton": "Instagramda obuna bo‘lish",
+    "emptyState": "Nashrlar tez orada shu yerda paydo bo‘ladi — hozircha Instagramimizga tashrif buyuring.",
+    "openOnInstagram": "Instagramda ochish →"
+  },
+  "contacts": {
+    "heroTitle": "Kontaktlar",
+    "heroDesc": "Sakrashlar, a’zolik yoki musobaqalar bo‘yicha savollaringiz bo‘lsa, federatsiya bilan bog‘laning.",
+    "addressLabel": "Manzil",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email",
+    "hoursLabel": "Ish vaqti",
+    "socialLabel": "Ijtimoiy tarmoqlar",
+    "mapTitle": "Federatsiya joylashuvi xaritasi"
+  },
+  "footer": {
+    "navTitle": "Navigatsiya",
+    "contactsTitle": "Kontaktlar",
+    "officialSite": "Federatsiyaning rasmiy sayti"
+  },
+  "languages": {
+    "ru": "Русский",
+    "en": "English",
+    "uz": "O‘zbekcha"
+  }
+}

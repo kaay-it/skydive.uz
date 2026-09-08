@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "news": "News",
+    "gallery": "Gallery",
+    "contacts": "Contacts"
+  },
+  "header": {
+    "openMenu": "Open menu"
+  },
+  "common": {
+    "readMore": "Read more →",
+    "allNews": "All news →"
+  },
+  "home": {
+    "badge": "Official Skydiving Federation",
+    "ctaAbout": "About the Federation",
+    "ctaFirstJump": "Make Your First Jump",
+    "disciplinesTitle": "Skydiving Disciplines",
+    "disciplinesSubtitle": "The federation oversees the development of all official skydiving disciplines in the country.",
+    "presidentTitle": "A Word from the Federation President",
+    "presidentQuote": "\"{bio} We welcome new athletes, clubs, and partners — come conquer the sky with us.\" — {name}, {role}",
+    "presidentCta": "Federation Leadership",
+    "newsTitle": "News",
+    "newsSubtitle": "The latest from the federation"
+  },
+  "about": {
+    "heroTitle": "About the Federation",
+    "heroDesc": "History, mission, and structure of the Skydiving Federation of Uzbekistan.",
+    "missionTitle": "Mission",
+    "foundedText": "Founded in {year}, the federation unites the country's sports aeroclubs, trains athletes and judges, holds national and regional competitions, and represents Uzbekistan on the international skydiving stage.",
+    "disciplinesTitle": "Disciplines",
+    "leadershipTitle": "Federation Leadership"
+  },
+  "newsPage": {
+    "heroTitle": "News",
+    "heroDesc": "Events, competition results, and federation announcements.",
+    "backToNews": "← All news"
+  },
+  "disciplinePage": {
+    "back": "← Disciplines"
+  },
+  "gallery": {
+    "heroTitle": "Gallery",
+    "heroDesc": "Photos and videos from competitions, camps, and jumps — straight from our Instagram.",
+    "bannerText": "The full feed — photos and videos from every camp and competition — is on our Instagram.",
+    "subscribeButton": "Follow on Instagram",
+    "emptyState": "Posts will appear here soon — meanwhile, check out our Instagram.",
+    "openOnInstagram": "Open the post on Instagram →"
+  },
+  "contacts": {
+    "heroTitle": "Contacts",
+    "heroDesc": "Get in touch with the federation about jumps, membership, or competitions.",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "hoursLabel": "Working Hours",
+    "socialLabel": "Social Media",
+    "mapTitle": "Map of the federation's location"
+  },
+  "footer": {
+    "navTitle": "Navigation",
+    "contactsTitle": "Contacts",
+    "officialSite": "Official federation website"
+  },
+  "languages": {
+    "ru": "Русский",
+    "en": "English",
+    "uz": "O‘zbekcha"
+  }
+}
