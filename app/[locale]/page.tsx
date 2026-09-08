@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
 import { NewsCard } from "@/components/news-card";
@@ -22,11 +23,17 @@ export default async function HomePage({ params }: { params: { locale: string } 
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-600 via-brand-500 to-teal-500">
-        <div className="bg-hero-grid absolute inset-0 opacity-30" style={{ backgroundSize: "22px 22px" }} />
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-pink-400/25 blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full bg-accent-400/20 blur-3xl" />
+      <section className="relative overflow-hidden bg-brand-700">
+        <Image
+          src="/hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/95 via-ink-950/70 to-ink-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent" />
 
         <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
           <span className="rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white">
