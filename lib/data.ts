@@ -113,12 +113,12 @@ export const news: NewsItem[] = [
 
 export const contacts = {
   address: "г. Ташкент, ул. Авиационная, 12",
-  phone: "+998 71 123 45 67",
+  phone: "+998 93 594 68 54",
+  phoneSecondary: "+998 99 099 13 19",
   email: "info@skydive.uz",
   social: {
     instagram: "https://instagram.com/skydive.uz",
-    telegram: "https://t.me/skydive_uz",
-    facebook: "https://facebook.com/skydive.uz",
+    telegram: "https://t.me/+MGFRNcSw5RYyZDhi",
   },
   workingHours: "Пн–Пт, 9:00–18:00",
 };

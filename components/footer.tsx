@@ -39,6 +39,14 @@ export function Footer() {
               </a>
             </li>
             <li>
+              <a
+                href={`tel:${contacts.phoneSecondary.replace(/\s/g, "")}`}
+                className="transition-colors hover:text-white"
+              >
+                {contacts.phoneSecondary}
+              </a>
+            </li>
+            <li>
               <a href={`mailto:${contacts.email}`} className="transition-colors hover:text-white">
                 {contacts.email}
               </a>

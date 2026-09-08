@@ -8,7 +8,6 @@ export const metadata: Metadata = { title: "Контакты" };
 const socialLabels: Record<string, string> = {
   instagram: "Instagram",
   telegram: "Telegram",
-  facebook: "Facebook",
 };
 
 export default function ContactsPage() {
@@ -27,6 +26,12 @@ export default function ContactsPage() {
               <h2 className="text-sm font-semibold uppercase tracking-wide text-ink-900/50">Телефон</h2>
               <a href={`tel:${contacts.phone.replace(/\s/g, "")}`} className="mt-1 block text-lg text-brand-600">
                 {contacts.phone}
+              </a>
+              <a
+                href={`tel:${contacts.phoneSecondary.replace(/\s/g, "")}`}
+                className="mt-1 block text-lg text-brand-600"
+              >
+                {contacts.phoneSecondary}
               </a>
             </div>
             <div>
