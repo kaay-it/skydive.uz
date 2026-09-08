@@ -1,13 +1,24 @@
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
 import { NewsCard } from "@/components/news-card";
-import { boardMembers, disciplines, federation, news, stats } from "@/lib/data";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { getBoardMembers, getDisciplines, getFederation, getNews, getStats } from "@/lib/data";
 
 const statColors = ["text-brand-600", "text-teal-600", "text-accent-600", "text-pink-600"];
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: { locale: string } }) {
+  const locale = params.locale as Locale;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("home");
+  const tc = await getTranslations("common");
+  const federation = getFederation(locale);
+  const stats = getStats(locale);
+  const disciplines = getDisciplines(locale);
+  const news = getNews(locale);
+  const president = getBoardMembers(locale)[0];
   const latestNews = news.slice(0, 3);
-  const president = boardMembers[0];
 
   return (
     <>
@@ -19,7 +30,7 @@ export default function HomePage() {
 
         <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
           <span className="rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white">
-            Официальная федерация парашютного спорта
+            {t("badge")}
           </span>
           <h1 className="max-w-2xl text-4xl font-bold leading-tight text-white sm:text-5xl">
             {federation.tagline}
@@ -32,13 +43,13 @@ export default function HomePage() {
               href="/about"
               className="rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-600/30 transition-colors hover:bg-accent-600"
             >
-              О федерации
+              {t("ctaAbout")}
             </Link>
             <Link
               href="/contacts"
               className="rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Совершить первый прыжок
+              {t("ctaFirstJump")}
             </Link>
           </div>
         </Container>
@@ -61,10 +72,8 @@ export default function HomePage() {
         <Container>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-ink-950 sm:text-3xl">Дисциплины парашютного спорта</h2>
-              <p className="mt-2 max-w-xl text-sm text-ink-900/60">
-                Федерация курирует развитие всех официальных дисциплин парашютного спорта в стране.
-              </p>
+              <h2 className="text-2xl font-bold text-ink-950 sm:text-3xl">{t("disciplinesTitle")}</h2>
+              <p className="mt-2 max-w-xl text-sm text-ink-900/60">{t("disciplinesSubtitle")}</p>
             </div>
           </div>
 
@@ -83,17 +92,16 @@ export default function HomePage() {
         <Container>
           <div className="flex flex-col items-center gap-6 rounded-3xl bg-gradient-to-br from-teal-500 to-brand-600 p-10 text-center shadow-xl shadow-brand-600/10 sm:flex-row sm:justify-between sm:text-left">
             <div>
-              <h2 className="text-xl font-bold text-white sm:text-2xl">Слово президента федерации</h2>
+              <h2 className="text-xl font-bold text-white sm:text-2xl">{t("presidentTitle")}</h2>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
-                «{president.bio} Мы открыты для новых спортсменов, клубов и партнёров — приходите покорять небо
-                вместе с нами.» — {president.name}, {president.role}
+                {t("presidentQuote", { bio: president.bio, name: president.name, role: president.role })}
               </p>
             </div>
             <Link
               href="/about"
               className="shrink-0 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 transition-colors hover:bg-white/90"
             >
-              Руководство федерации
+              {t("presidentCta")}
             </Link>
           </div>
         </Container>
@@ -103,17 +111,17 @@ export default function HomePage() {
         <Container>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-ink-950 sm:text-3xl">Новости</h2>
-              <p className="mt-2 text-sm text-ink-900/60">Последние события из жизни федерации</p>
+              <h2 className="text-2xl font-bold text-ink-950 sm:text-3xl">{t("newsTitle")}</h2>
+              <p className="mt-2 text-sm text-ink-900/60">{t("newsSubtitle")}</p>
             </div>
             <Link href="/news" className="text-sm font-semibold text-brand-600 hover:text-brand-700">
-              Все новости →
+              {tc("allNews")}
             </Link>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {latestNews.map((item) => (
-              <NewsCard key={item.slug} item={item} />
+              <NewsCard key={item.slug} item={item} locale={locale} />
             ))}
           </div>
         </Container>

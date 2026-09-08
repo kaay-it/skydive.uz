@@ -1,44 +1,48 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
 import { InstagramEmbed } from "@/components/instagram-embed";
-import { contacts, instagramPosts } from "@/lib/data";
+import type { Locale } from "@/i18n/routing";
+import { getContacts, instagramPosts } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Галерея" };
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: "gallery" });
+  return { title: t("heroTitle") };
+}
 
-export default function GalleryPage() {
+export default async function GalleryPage({ params }: { params: { locale: string } }) {
+  const locale = params.locale as Locale;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("gallery");
+  const contacts = getContacts(locale);
+
   return (
     <>
-      <PageHero
-        title="Галерея"
-        description="Фото и видео с соревнований, сборов и прыжков — прямо из нашего Instagram."
-      />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} />
       <section className="py-16">
         <Container>
           <div className="mb-10 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-brand-50 to-teal-50 p-6 text-center sm:flex-row sm:justify-between sm:text-left">
-            <p className="text-sm text-ink-900/70">
-              Полная лента — фото и видео с каждого сбора и соревнования — в нашем Instagram.
-            </p>
+            <p className="text-sm text-ink-900/70">{t("bannerText")}</p>
             <a
               href={contacts.social.instagram}
               target="_blank"
               rel="noreferrer"
               className="shrink-0 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
             >
-              Подписаться в Instagram
+              {t("subscribeButton")}
             </a>
           </div>
 
           {instagramPosts.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {instagramPosts.map((url) => (
-                <InstagramEmbed key={url} url={url} />
+                <InstagramEmbed key={url} url={url} fallbackLabel={t("openOnInstagram")} />
               ))}
             </div>
           ) : (
-            <p className="text-center text-sm text-ink-900/50">
-              Публикации скоро появятся здесь — а пока загляните в наш Instagram.
-            </p>
+            <p className="text-center text-sm text-ink-900/50">{t("emptyState")}</p>
           )}
         </Container>
       </section>

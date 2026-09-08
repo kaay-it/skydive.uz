@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-export function InstagramEmbed({ url }: { url: string }) {
+export function InstagramEmbed({ url, fallbackLabel }: { url: string; fallbackLabel: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function InstagramEmbed({ url }: { url: string }) {
           rel="noreferrer"
           className="flex aspect-square items-center justify-center bg-gradient-to-br from-brand-50 to-teal-50 p-6 text-center text-sm font-medium text-brand-600"
         >
-          Открыть публикацию в Instagram →
+          {fallbackLabel}
         </a>
       </blockquote>
     </div>
