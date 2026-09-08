@@ -5,15 +5,15 @@ import { PageHero } from "@/components/page-hero";
 export const metadata: Metadata = { title: "Галерея" };
 
 const gradients = [
-  "from-brand-400 to-brand-700",
-  "from-accent-400 to-accent-600",
-  "from-brand-500 to-accent-500",
-  "from-ink-800 to-brand-600",
+  "from-brand-500 to-teal-400",
+  "from-accent-400 to-pink-500",
+  "from-teal-400 to-brand-600",
+  "from-pink-500 to-brand-500",
   "from-accent-500 to-brand-700",
   "from-brand-400 to-ink-900",
-  "from-accent-400 to-brand-500",
+  "from-teal-500 to-accent-400",
   "from-brand-600 to-ink-950",
-  "from-accent-600 to-brand-400",
+  "from-pink-400 to-teal-500",
 ];
 
 export default function GalleryPage() {

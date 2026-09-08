@@ -5,6 +5,9 @@ import { boardMembers, disciplines, federation, stats } from "@/lib/data";
 
 export const metadata: Metadata = { title: "О федерации" };
 
+const statColors = ["text-brand-600", "text-teal-600", "text-accent-600", "text-pink-600"];
+const statTints = ["bg-brand-50", "bg-teal-50", "bg-accent-50", "bg-pink-50"];
+
 export default function AboutPage() {
   return (
     <>
@@ -26,9 +29,9 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl bg-brand-50 p-5">
-                <div className="text-2xl font-bold text-brand-600">{stat.value}</div>
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={`rounded-2xl p-5 ${statTints[i % statTints.length]}`}>
+                <div className={`text-2xl font-bold ${statColors[i % statColors.length]}`}>{stat.value}</div>
                 <div className="mt-1 text-xs text-ink-900/60">{stat.label}</div>
               </div>
             ))}
@@ -56,7 +59,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {boardMembers.map((member) => (
               <div key={member.name} className="rounded-2xl border border-ink-900/10 p-6">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-accent-500 text-lg font-bold text-white">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 via-teal-400 to-accent-400 text-lg font-bold text-white">
                   {member.name
                     .split(" ")
                     .map((n) => n[0])

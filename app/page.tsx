@@ -3,6 +3,8 @@ import { Container } from "@/components/container";
 import { NewsCard } from "@/components/news-card";
 import { boardMembers, disciplines, federation, news, stats } from "@/lib/data";
 
+const statColors = ["text-brand-600", "text-teal-600", "text-accent-600", "text-pink-600"];
+
 export default function HomePage() {
   const latestNews = news.slice(0, 3);
   const president = boardMembers[0];
@@ -11,8 +13,9 @@ export default function HomePage() {
     <>
       <section className="relative overflow-hidden bg-ink-950">
         <div className="bg-hero-grid absolute inset-0 opacity-40" style={{ backgroundSize: "22px 22px" }} />
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-500/20 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-accent-500/20 blur-3xl" />
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-teal-500/20 blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full bg-pink-500/10 blur-3xl" />
 
         <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
           <span className="rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white/70">
@@ -43,9 +46,11 @@ export default function HomePage() {
 
       <section className="border-b border-ink-900/10 bg-white">
         <Container className="grid grid-cols-2 gap-8 py-12 sm:grid-cols-4">
-          {stats.map((stat) => (
+          {stats.map((stat, i) => (
             <div key={stat.label} className="text-center sm:text-left">
-              <div className="text-3xl font-bold text-brand-600 sm:text-4xl">{stat.value}</div>
+              <div className={`text-3xl font-bold sm:text-4xl ${statColors[i % statColors.length]}`}>
+                {stat.value}
+              </div>
               <div className="mt-1 text-sm text-ink-900/60">{stat.label}</div>
             </div>
           ))}
@@ -85,7 +90,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/about"
-            className="shrink-0 rounded-lg bg-brand-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+            className="shrink-0 rounded-lg bg-teal-500 px-6 py-3 text-sm font-semibold text-ink-950 transition-colors hover:bg-teal-400"
           >
             Руководство федерации
           </Link>
