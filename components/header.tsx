@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -13,11 +14,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink-950/95 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 text-white" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-accent-500 text-sm font-bold text-ink-950">
-            SU
+        <Link href="/" className="flex items-center gap-2.5 text-white" onClick={() => setOpen(false)}>
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white p-1">
+            <Image src="/logo.png" alt="Skydive.uz" width={44} height={44} className="h-full w-full object-contain" priority />
           </span>
-          <span className="text-sm font-semibold tracking-wide sm:text-base">
+          <span className="hidden text-sm font-semibold tracking-wide sm:inline sm:text-base">
             Федерация парашютного спорта Узбекистана
           </span>
         </Link>

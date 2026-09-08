@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "./container";
 import { contacts, federation, navLinks } from "@/lib/data";
@@ -7,9 +8,9 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink-950 text-white/70">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2 text-white">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-accent-500 text-sm font-bold text-ink-950">
-              SU
+          <div className="flex items-center gap-2.5 text-white">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white p-1">
+              <Image src="/logo.png" alt="Skydive.uz" width={40} height={40} className="h-full w-full object-contain" />
             </span>
             <span className="text-sm font-semibold">{federation.shortName}</span>
           </div>
