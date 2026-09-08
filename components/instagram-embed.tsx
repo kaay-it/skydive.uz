@@ -32,8 +32,13 @@ export function InstagramEmbed({ url }: { url: string }) {
         data-instgrm-version="14"
         style={{ margin: 0, width: "100%" }}
       >
-        <a href={url} target="_blank" rel="noreferrer">
-          Открыть публикацию в Instagram
+        <a
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          className="flex aspect-square items-center justify-center bg-gradient-to-br from-brand-50 to-teal-50 p-6 text-center text-sm font-medium text-brand-600"
+        >
+          Открыть публикацию в Instagram →
         </a>
       </blockquote>
     </div>
