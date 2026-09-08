@@ -18,7 +18,13 @@ type Federation = {
 };
 
 type Stat = { value: string; label: string };
-type Discipline = { title: string; description: string };
+export type Discipline = {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  details: string[];
+};
 type BoardMember = { name: string; role: string; bio: string };
 type Contacts = {
   address: string;
@@ -80,68 +86,140 @@ const statsByLocale: Record<Locale, Stat[]> = {
 const disciplinesByLocale: Record<Locale, Discipline[]> = {
   ru: [
     {
+      slug: "classic",
       title: "Классическое парашютное многоборье",
-      description:
-        "Точность приземления и акробатика в свободном падении — базовая олимпийская дисциплина парашютного спорта.",
+      description: "Точность приземления и акробатика в свободном падении.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Классическое парашютное многоборье — одна из старейших дисциплин парашютного спорта, объединяющая два норматива: точность приземления и акробатику (стиль) в свободном падении.",
+        "В точности приземления спортсмен должен приземлиться как можно ближе к электронной мишени диаметром 2 см, управляя куполом на завершающем этапе снижения. В акробатике оценивается скорость и чистота выполнения серии фигур — заданных разворотов и сальто — во время свободного падения.",
+        "Дисциплина входит в программу чемпионатов мира и Европы под эгидой Международной авиационной федерации (FAI) и остаётся базовой ступенью для спортсменов, начинающих путь в классическом парашютизме.",
+      ],
     },
     {
+      slug: "fs",
       title: "Групповая акробатика (FS)",
-      description:
-        "Построение фигур в свободном падении командой из 4–8 спортсменов на скорости падения около 200 км/ч.",
+      description: "Командные фигуры из 4–8 спортсменов на скорости около 200 км/ч.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Групповая акробатика (Formation Skydiving, FS) — командная дисциплина, в которой спортсмены строят серию фигур в свободном падении, держась за руки и ноги партнёров на скорости падения около 200 км/ч.",
+        "Основные форматы — 4-way и 8-way: команда из 4 или 8 спортсменов должна за отведённое время (обычно 35–50 секунд свободного падения) построить максимальное количество фигур из заданной серии. Результат фиксирует видеооператор, прыгающий вместе с командой.",
+        "FS — одна из самых зрелищных и требовательных к слаженности команды дисциплин: успех зависит от синхронности движений, точности захватов и слаженной работы всей группы.",
+      ],
     },
     {
+      slug: "cf",
       title: "Купольная акробатика (CF)",
-      description:
-        "Построение фигур под раскрытыми куполами — дисциплина, требующая высочайшей точности пилотирования.",
+      description: "Фигуры под раскрытыми куполами и точное пилотирование.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Купольная акробатика (Canopy Formation, CF) — дисциплина, в которой спортсмены строят фигуры уже под раскрытыми куполами, а не в свободном падении.",
+        "Команда из 2–4 спортсменов сближается в воздухе и сцепляется куполами или берётся за стропы, формируя фигуры — «стопки», «розетки» и другие построения. Дисциплина требует ювелирной точности пилотирования купола и хладнокровия: ошибка в сближении может привести к схлопыванию купола.",
+        "CF — одна из самых технически сложных дисциплин парашютного спорта, доступная только спортсменам с большим опытом прыжков и отдельной специализированной подготовкой.",
+      ],
     },
     {
+      slug: "freefly",
       title: "Фристайл и фрифлай",
-      description:
-        "Свободные и артистичные дисциплины свободного падения с элементами хореографии и вертикальными позициями тела.",
+      description: "Артистичные дисциплины свободного падения с хореографией.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Фристайл и фрифлай — артистичные дисциплины свободного падения, в которых спортсмены выполняют вертикальные позиции тела (head-down, sit-fly) и хореографические элементы вместо классической горизонтальной позиции «на животе».",
+        "Во фристайле спортсмен выступает соло, демонстрируя произвольную программу с элементами, похожими на гимнастику и танец в воздухе; в паре с ним прыгает видеооператор, снимающий выступление для судейской оценки. Фрифлай — командная версия дисциплины, где несколько спортсменов строят фигуры в вертикальном положении.",
+        "Дисциплина требует безупречного владения телом в свободном падении и особенно ценится за зрелищность — именно фристайл и фрифлай чаще всего можно увидеть в промо-роликах о парашютном спорте.",
+      ],
     },
   ],
   en: [
     {
+      slug: "classic",
       title: "Classic Skydiving Combined",
-      description:
-        "Landing accuracy and freefall aerobatics — the foundational discipline of competitive skydiving.",
+      description: "Landing accuracy and freefall aerobatics.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Classic Skydiving Combined is one of the oldest skydiving disciplines, combining two events: landing accuracy and freefall style (aerobatics).",
+        "In accuracy, the athlete aims to land as close as possible to an electronic target just 2 cm in diameter, steering the canopy during the final approach. In style, judges score the speed and precision of a set sequence of turns and loops performed in freefall.",
+        "The discipline is part of World and European Championship programs sanctioned by the Fédération Aéronautique Internationale (FAI) and remains the foundational step for athletes starting out in classical skydiving.",
+      ],
     },
     {
+      slug: "fs",
       title: "Formation Skydiving (FS)",
-      description:
-        "Building formations in freefall with a team of 4–8 athletes at a fall speed of around 200 km/h.",
+      description: "Team formations of 4–8 athletes at around 200 km/h.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Formation Skydiving (FS) is a team discipline in which athletes build a sequence of formations in freefall, gripping teammates' arms and legs at a fall speed of around 200 km/h.",
+        "The main formats are 4-way and 8-way: a team of 4 or 8 athletes must build as many formations as possible from a set sequence within a limited freefall time (typically 35–50 seconds). A videographer jumps with the team to record the round for judging.",
+        "FS is one of the most spectacular and demanding team disciplines — success depends on synchronized movement, precise grips, and seamless teamwork.",
+      ],
     },
     {
+      slug: "cf",
       title: "Canopy Formation (CF)",
-      description:
-        "Building formations under open canopies — a discipline demanding the highest precision piloting.",
+      description: "Formations under open canopies and precision piloting.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Canopy Formation (CF) is a discipline in which athletes build formations under open canopies rather than in freefall.",
+        "A team of 2–4 athletes closes in on each other in the air and links up by grabbing canopies or lines, forming shapes such as \"stacks\" and \"rosettes.\" The discipline demands extremely precise canopy piloting and a cool head — a mistiming during the approach can collapse a canopy.",
+        "CF is one of the most technically demanding skydiving disciplines, open only to athletes with extensive jump experience and dedicated specialized training.",
+      ],
     },
     {
+      slug: "freefly",
       title: "Freestyle & Freeflying",
-      description:
-        "Free-form, artistic freefall disciplines featuring choreography and vertical body positions.",
+      description: "Artistic freefall disciplines with choreography.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Freestyle and Freeflying are artistic freefall disciplines in which athletes perform vertical body positions (head-down, sit-fly) and choreographic elements instead of the classic horizontal belly-to-earth position.",
+        "In freestyle, an athlete performs solo, showcasing a freely chosen routine with elements resembling aerial gymnastics and dance; a videographer jumps alongside to film the routine for judging. Freeflying is the team version of the discipline, where several athletes build formations in vertical positions.",
+        "The discipline demands flawless body control in freefall and is especially valued for its visual appeal — freestyle and freeflying are what you most often see in skydiving promo videos.",
+      ],
     },
   ],
   uz: [
     {
+      slug: "classic",
       title: "Klassik parashyut ko‘pkurashi",
-      description:
-        "Aniq qo‘nish va erkin uchishda akrobatika — parashyut sportining asosiy olimpiya intizomi.",
+      description: "Aniq qo‘nish va erkin uchishda akrobatika.",
+      image: "/disciplines/classic.jpg",
+      details: [
+        "Klassik parashyut ko‘pkurashi — parashyut sportining eng qadimiy intizomlaridan biri bo‘lib, ikki normativni birlashtiradi: aniq qo‘nish va erkin uchishda akrobatika (stil).",
+        "Aniq qo‘nishda sportchi gumbazni boshqarib, diametri atigi 2 sm bo‘lgan elektron nishonga imkon qadar yaqin qo‘nishga harakat qiladi. Akrobatikada esa erkin uchish paytida bajarilgan belgilangan burilishlar va saltolar ketma-ketligining tezligi va aniqligi baholanadi.",
+        "Intizom FAI (Xalqaro aviatsiya federatsiyasi) homiyligidagi Jahon va Yevropa chempionatlari dasturiga kiradi va klassik parashyut sportiga endi qadam qo‘yayotgan sportchilar uchun asosiy bosqich bo‘lib qolmoqda.",
+      ],
     },
     {
+      slug: "fs",
       title: "Guruh akrobatikasi (FS)",
-      description:
-        "4–8 kishilik jamoa bilan erkin uchishda, taxminan soatiga 200 km tezlikda shakllar hosil qilish.",
+      description: "4–8 kishilik jamoa bilan soatiga taxminan 200 km tezlikda shakllar.",
+      image: "/disciplines/fs.jpg",
+      details: [
+        "Guruh akrobatikasi (Formation Skydiving, FS) — sportchilar erkin uchishda, taxminan soatiga 200 km tezlikda, hamjamoachilarining qo‘l va oyoqlaridan ushlab, ketma-ket shakllar hosil qiladigan jamoaviy intizom.",
+        "Asosiy formatlar — 4-way va 8-way: 4 yoki 8 kishilik jamoa belgilangan vaqt ichida (odatda 35–50 soniyalik erkin uchishda) berilgan ketma-ketlikdan iloji boricha ko‘proq shakl hosil qilishi kerak. Natijani jamoa bilan birga sakraydigan videooperator qayd etadi.",
+        "FS — jamoa hamjihatligini eng ko‘p talab qiladigan va tomoshabop intizomlardan biri: muvaffaqiyat harakatlar sinxronligiga, aniq ushlashlarga va jamoaviy ishga bog‘liq.",
+      ],
     },
     {
+      slug: "cf",
       title: "Gumbaz akrobatikasi (CF)",
-      description:
-        "Ochiq gumbazlar ostida shakllar hosil qilish — yuqori aniqlikdagi boshqaruvni talab qiluvchi intizom.",
+      description: "Ochiq gumbazlar ostida shakllar va aniq boshqaruv.",
+      image: "/disciplines/cf.jpg",
+      details: [
+        "Gumbaz akrobatikasi (Canopy Formation, CF) — sportchilar erkin uchishda emas, balki ochilgan gumbazlar ostida shakllar hosil qiladigan intizom.",
+        "2–4 kishilik jamoa havoda bir-biriga yaqinlashib, gumbazlar yoki arqonlardan ushlab, «shtabel» va «rozetka» kabi shakllarni hosil qiladi. Intizom gumbazni boshqarishda yuqori aniqlik va sovuqqonlikni talab qiladi — yaqinlashishdagi xato gumbazning yiqilib tushishiga olib kelishi mumkin.",
+        "CF — parashyut sportining texnik jihatdan eng murakkab intizomlaridan biri bo‘lib, faqat katta sakrash tajribasiga va maxsus tayyorgarlikka ega sportchilar uchun ochiq.",
+      ],
     },
     {
+      slug: "freefly",
       title: "Freestayl va Freefly",
-      description:
-        "Xoreografiya elementlari va vertikal tana holatlari bilan erkin va badiiy erkin uchish intizomlari.",
+      description: "Xoreografiya bilan badiiy erkin uchish intizomlari.",
+      image: "/disciplines/freefly.jpg",
+      details: [
+        "Freestayl va freefly — sportchilar klassik gorizontal «qorin bilan yerga qarab» holati o‘rniga vertikal tana holatlari (head-down, sit-fly) va xoreografik elementlarni bajaradigan badiiy erkin uchish intizomlari.",
+        "Freestaylda sportchi yakka holda, havoda gimnastika va raqsga o‘xshash elementlar bilan erkin dastur namoyish etadi; unga hamrohlik qiluvchi videooperator chiqishni hakamlar baholashi uchun suratga oladi. Freefly esa intizomning jamoaviy versiyasi bo‘lib, unda bir nechta sportchi vertikal holatda shakllar hosil qiladi.",
+        "Intizom erkin uchishda tanani mukammal boshqarishni talab qiladi va o‘zining tomoshabopligi bilan alohida qadrlanadi — aynan freestayl va freefly parashyut sporti haqidagi promo-videolarda eng ko‘p uchraydigan manzaralardir.",
+      ],
     },
   ],
 };
@@ -393,6 +471,10 @@ export function getStats(locale: Locale): Stat[] {
 
 export function getDisciplines(locale: Locale): Discipline[] {
   return disciplinesByLocale[locale];
+}
+
+export function getDiscipline(locale: Locale, slug: string): Discipline | undefined {
+  return disciplinesByLocale[locale].find((d) => d.slug === slug);
 }
 
 export function getBoardMembers(locale: Locale): BoardMember[] {

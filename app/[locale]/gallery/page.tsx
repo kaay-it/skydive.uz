@@ -20,7 +20,7 @@ export default async function GalleryPage({ params }: { params: { locale: string
 
   return (
     <>
-      <PageHero title={t("heroTitle")} description={t("heroDesc")} />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} image="/hero-gallery.jpg" />
       <section className="py-16">
         <Container>
           <div className="mb-10 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-brand-50 to-teal-50 p-6 text-center sm:flex-row sm:justify-between sm:text-left">

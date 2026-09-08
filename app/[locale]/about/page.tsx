@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
+import { DisciplineCard } from "@/components/discipline-card";
 import { PageHero } from "@/components/page-hero";
 import type { Locale } from "@/i18n/routing";
 import { getBoardMembers, getDisciplines, getFederation, getStats } from "@/lib/data";
@@ -25,7 +26,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
 
   return (
     <>
-      <PageHero title={t("heroTitle")} description={t("heroDesc")} />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} image="/hero-about.jpg" />
 
       <section className="py-16">
         <Container className="grid gap-10 lg:grid-cols-3">
@@ -53,10 +54,7 @@ export default async function AboutPage({ params }: { params: { locale: string }
           <h2 className="text-xl font-bold text-ink-950">{t("disciplinesTitle")}</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {disciplines.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-ink-900/10 bg-white p-6">
-                <h3 className="text-lg font-semibold text-ink-950">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-900/70">{d.description}</p>
-              </div>
+              <DisciplineCard key={d.slug} discipline={d} />
             ))}
           </div>
         </Container>

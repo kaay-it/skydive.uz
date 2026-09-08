@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/container";
+import { DisciplineCard } from "@/components/discipline-card";
 import { NewsCard } from "@/components/news-card";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -86,10 +87,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {disciplines.map((d) => (
-              <div key={d.title} className="rounded-2xl border border-ink-900/10 p-6">
-                <h3 className="text-lg font-semibold text-ink-950">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-900/70">{d.description}</p>
-              </div>
+              <DisciplineCard key={d.slug} discipline={d} />
             ))}
           </div>
         </Container>

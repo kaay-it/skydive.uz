@@ -38,6 +38,9 @@
     "heroDesc": "Events, competition results, and federation announcements.",
     "backToNews": "← All news"
   },
+  "disciplinePage": {
+    "back": "← Disciplines"
+  },
   "gallery": {
     "heroTitle": "Gallery",
     "heroDesc": "Photos and videos from competitions, camps, and jumps — straight from our Instagram.",

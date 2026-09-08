@@ -20,7 +20,7 @@ export default async function NewsPage({ params }: { params: { locale: string } 
 
   return (
     <>
-      <PageHero title={t("heroTitle")} description={t("heroDesc")} />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} image="/hero-news.jpg" />
       <section className="py-16">
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

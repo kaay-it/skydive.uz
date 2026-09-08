@@ -24,7 +24,7 @@ export default async function ContactsPage({ params }: { params: { locale: strin
 
   return (
     <>
-      <PageHero title={t("heroTitle")} description={t("heroDesc")} />
+      <PageHero title={t("heroTitle")} description={t("heroDesc")} image="/hero-contacts.jpg" />
 
       <section className="py-16">
         <Container className="grid gap-10 lg:grid-cols-2">
