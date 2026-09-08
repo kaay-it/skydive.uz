@@ -1,40 +1,45 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
+import { InstagramEmbed } from "@/components/instagram-embed";
+import { contacts, instagramPosts } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Галерея" };
-
-const gradients = [
-  "from-brand-500 to-teal-400",
-  "from-accent-400 to-pink-500",
-  "from-teal-400 to-brand-600",
-  "from-pink-500 to-brand-500",
-  "from-accent-500 to-brand-700",
-  "from-brand-400 to-pink-400",
-  "from-teal-500 to-accent-400",
-  "from-brand-600 to-teal-600",
-  "from-pink-400 to-teal-500",
-];
 
 export default function GalleryPage() {
   return (
     <>
       <PageHero
         title="Галерея"
-        description="Фотографии с соревнований, сборов и прыжков. Раздел наполняется — скоро здесь появятся снимки."
+        description="Фото и видео с соревнований, сборов и прыжков — прямо из нашего Instagram."
       />
       <section className="py-16">
         <Container>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3">
-            {gradients.map((gradient, i) => (
-              <div
-                key={i}
-                className={`flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br ${gradient}`}
-              >
-                <span className="text-xs font-medium uppercase tracking-wider text-white/70">Фото скоро</span>
-              </div>
-            ))}
+          <div className="mb-10 flex flex-col items-center gap-4 rounded-2xl bg-gradient-to-br from-brand-50 to-teal-50 p-6 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="text-sm text-ink-900/70">
+              Полная лента — фото и видео с каждого сбора и соревнования — в нашем Instagram.
+            </p>
+            <a
+              href={contacts.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            >
+              Подписаться в Instagram
+            </a>
           </div>
+
+          {instagramPosts.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {instagramPosts.map((url) => (
+                <InstagramEmbed key={url} url={url} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-sm text-ink-900/50">
+              Публикации скоро появятся здесь — а пока загляните в наш Instagram.
+            </p>
+          )}
         </Container>
       </section>
     </>

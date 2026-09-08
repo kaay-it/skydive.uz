@@ -123,6 +123,8 @@ export const contacts = {
   workingHours: "Пн–Пт, 9:00–18:00",
 };
 
+export const instagramPosts: string[] = ["https://www.instagram.com/reel/DcvOSRZgUL3/"];
+
 export const navLinks = [
   { href: "/", label: "Главная" },
   { href: "/about", label: "О федерации" },
