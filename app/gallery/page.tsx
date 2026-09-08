@@ -10,9 +10,9 @@ const gradients = [
   "from-teal-400 to-brand-600",
   "from-pink-500 to-brand-500",
   "from-accent-500 to-brand-700",
-  "from-brand-400 to-ink-900",
+  "from-brand-400 to-pink-400",
   "from-teal-500 to-accent-400",
-  "from-brand-600 to-ink-950",
+  "from-brand-600 to-teal-600",
   "from-pink-400 to-teal-500",
 ];
 

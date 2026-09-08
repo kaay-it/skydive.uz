@@ -5,7 +5,7 @@ import { contacts, federation, navLinks } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-ink-950 text-white/70">
+    <footer className="border-t border-white/10 bg-gradient-to-br from-brand-700 to-brand-600 text-white/70">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <div className="flex items-center gap-2.5 text-white">

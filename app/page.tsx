@@ -11,32 +11,32 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-ink-950">
-        <div className="bg-hero-grid absolute inset-0 opacity-40" style={{ backgroundSize: "22px 22px" }} />
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-500/25 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-teal-500/20 blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full bg-pink-500/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-600 via-brand-500 to-teal-500">
+        <div className="bg-hero-grid absolute inset-0 opacity-30" style={{ backgroundSize: "22px 22px" }} />
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-pink-400/25 blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full bg-accent-400/20 blur-3xl" />
 
         <Container className="relative flex flex-col items-start gap-6 py-24 sm:py-32">
-          <span className="rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white/70">
+          <span className="rounded-full border border-white/25 bg-white/10 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white">
             Официальная федерация парашютного спорта
           </span>
           <h1 className="max-w-2xl text-4xl font-bold leading-tight text-white sm:text-5xl">
             {federation.tagline}
           </h1>
-          <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
             {federation.description}
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/about"
-              className="rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-600"
+              className="rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent-600/30 transition-colors hover:bg-accent-600"
             >
               О федерации
             </Link>
             <Link
               href="/contacts"
-              className="rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Совершить первый прыжок
             </Link>
@@ -79,21 +79,23 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="bg-ink-950 py-20">
-        <Container className="flex flex-col items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <h2 className="text-xl font-bold text-white sm:text-2xl">Слово президента федерации</h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
-              «{president.bio} Мы открыты для новых спортсменов, клубов и партнёров — приходите покорять небо
-              вместе с нами.» — {president.name}, {president.role}
-            </p>
+      <section className="py-20">
+        <Container>
+          <div className="flex flex-col items-center gap-6 rounded-3xl bg-gradient-to-br from-teal-500 to-brand-600 p-10 text-center shadow-xl shadow-brand-600/10 sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <h2 className="text-xl font-bold text-white sm:text-2xl">Слово президента федерации</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/90">
+                «{president.bio} Мы открыты для новых спортсменов, клубов и партнёров — приходите покорять небо
+                вместе с нами.» — {president.name}, {president.role}
+              </p>
+            </div>
+            <Link
+              href="/about"
+              className="shrink-0 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 transition-colors hover:bg-white/90"
+            >
+              Руководство федерации
+            </Link>
           </div>
-          <Link
-            href="/about"
-            className="shrink-0 rounded-lg bg-teal-500 px-6 py-3 text-sm font-semibold text-ink-950 transition-colors hover:bg-teal-400"
-          >
-            Руководство федерации
-          </Link>
         </Container>
       </section>
 

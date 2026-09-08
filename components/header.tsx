@@ -12,10 +12,10 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink-950/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-ink-900/10 bg-white/90 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 text-white" onClick={() => setOpen(false)}>
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white p-1">
+        <Link href="/" className="flex items-center gap-2.5 text-ink-950" onClick={() => setOpen(false)}>
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-ink-900/10 bg-white p-1 shadow-sm">
             <Image src="/logo.png" alt="Skydive.uz" width={44} height={44} className="h-full w-full object-contain" priority />
           </span>
           <span className="hidden text-sm font-semibold tracking-wide sm:inline sm:text-base">
@@ -31,7 +31,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  active ? "text-accent-400" : "text-white/80 hover:text-white"
+                  active ? "text-brand-600" : "text-ink-900/70 hover:text-ink-950"
                 }`}
               >
                 {link.label}
@@ -43,7 +43,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 items-center justify-center rounded-md text-white md:hidden"
+          className="flex h-9 w-9 items-center justify-center rounded-md text-ink-950 md:hidden"
           aria-label="Открыть меню"
           aria-expanded={open}
         >
@@ -58,7 +58,7 @@ export function Header() {
       </Container>
 
       {open && (
-        <nav className="border-t border-white/10 bg-ink-950 md:hidden">
+        <nav className="border-t border-ink-900/10 bg-white md:hidden">
           <Container className="flex flex-col gap-1 py-3">
             {navLinks.map((link) => {
               const active = pathname === link.href;
@@ -68,7 +68,7 @@ export function Header() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`rounded-md px-3 py-2 text-sm font-medium ${
-                    active ? "bg-white/10 text-accent-400" : "text-white/80 hover:bg-white/5 hover:text-white"
+                    active ? "bg-brand-50 text-brand-600" : "text-ink-900/70 hover:bg-ink-900/5 hover:text-ink-950"
                   }`}
                 >
                   {link.label}
